@@ -12,58 +12,105 @@ export function ProjectCard({ project }: { project: Project }) {
   const isBig = Boolean(project.featured);
 
   return (
-    <Card className="p-4 md:p-6 h-full flex flex-col">
+    <Card
+      className={`
+        group relative h-full overflow-hidden flex flex-col border
+        bg-card
+        shadow-sm
+        hover:shadow-md transition
+        hover:ring-1 hover:ring-primary/15 dark:hover:ring-primary/20
+      `}
+    >
+      {/* top accent (lighter in light mode) */}
+      <span
+        aria-hidden
+        className="
+          absolute inset-x-0 top-0 h-0.5
+          bg-linear-to-r from-primary/30 via-primary/10 to-transparent
+          dark:from-primary/70 dark:via-primary/30
+        "
+      />
+
+      {/* big card image */}
       {isBig && project.image && (
-        <div className="relative w-full aspect-video mb-4 overflow-hidden rounded-xl border">
+        <div className="relative w-full aspect-video overflow-hidden">
           <Image
             src={project.image}
             alt={project.title}
             fill
             className="object-cover"
+            sizes="(min-width: 768px) 50vw, 100vw"
+            priority
           />
+          <div className="absolute inset-0 bg-linear-to-t via-transparent to-transparent dark:from-background/70" />
         </div>
       )}
 
-      <div className="flex items-center gap-2">
-        <h3 className="text-lg md:text-xl font-semibold">{project.title}</h3>
-        {project.beta && <Badge variant="outline">Beta</Badge>}
-        {project.isMobileApp && <Badge variant="secondary">Mobile</Badge>}
-      </div>
+      {/* CONTENT */}
+      <div className="flex-1 p-4 md:p-6 flex flex-col">
+        <div className="flex items-center gap-2">
+          <h3 className="text-lg md:text-xl font-semibold tracking-tight">
+            {project.title}
+          </h3>
+          {project.beta && (
+            <Badge variant="outline" className="h-5 px-1.5 text-[11px]">
+              Beta
+            </Badge>
+          )}
+          {project.isMobileApp && (
+            <Badge variant="secondary" className="h-5 px-1.5 text-[11px]">
+              Mobile
+            </Badge>
+          )}
+        </div>
 
-      <p className="mt-2 text-sm opacity-90">{project.description}</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          {project.description}
+        </p>
 
-      <div className="mt-3 flex flex-wrap gap-2">
-        {project.stack.map((s) => (
-          <Badge key={s} variant="secondary">
-            {s}
-          </Badge>
-        ))}
-      </div>
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {project.stack.map((s) => (
+            <Badge
+              key={s}
+              variant="secondary"
+              className="
+                px-2 py-0.5 text-xs
+                bg-primary/10 text-primary
+                dark:bg-secondary/60 dark:text-foreground
+              "
+            >
+              {s}
+            </Badge>
+          ))}
+        </div>
 
-      <div className="mt-4 flex flex-wrap items-center gap-2">
-        {project.isMobileApp ? (
-          <StoreButtons
-            playStoreUrl={project.playStoreUrl}
-            appStoreUrl={project.appStoreUrl}
-          />
-        ) : (
-          <>
-            {project.github && (
-              <Button asChild size="sm" variant="outline">
-                <a href={project.github} target="_blank" rel="noreferrer">
-                  <Github className="mr-2 h-4 w-4" /> GitHub
-                </a>
-              </Button>
-            )}
-            {project.live && (
-              <Button asChild size="sm">
-                <a href={project.live} target="_blank" rel="noreferrer">
-                  <ExternalLink className="mr-2 h-4 w-4" /> Live
-                </a>
-              </Button>
-            )}
-          </>
-        )}
+        <div className="mt-auto pt-4 flex flex-wrap items-center gap-2">
+          {project.isMobileApp ? (
+            <StoreButtons
+              playStoreUrl={project.playStoreUrl}
+              appStoreUrl={project.appStoreUrl}
+            />
+          ) : (
+            <>
+              {project.github && (
+                <Button asChild size="sm" variant="outline" className="gap-2">
+                  <a href={project.github} target="_blank" rel="noreferrer">
+                    <Github className="h-4 w-4" />
+                    GitHub
+                  </a>
+                </Button>
+              )}
+              {project.live && (
+                <Button asChild size="sm" className="gap-2">
+                  <a href={project.live} target="_blank" rel="noreferrer">
+                    <ExternalLink className="h-4 w-4" />
+                    Live
+                  </a>
+                </Button>
+              )}
+            </>
+          )}
+        </div>
       </div>
     </Card>
   );

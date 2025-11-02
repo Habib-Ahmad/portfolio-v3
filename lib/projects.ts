@@ -19,7 +19,7 @@ export const projects: Project[] = [
     id: "neosocial",
     title: "NeoSocial",
     description:
-      "A graph-based social network with real-time updates and rich media sharing.",
+      "A graph-based social network with real-time updates and rich media sharing. Built on Neo4j and WebSockets for fast feeds and relationship-driven recommendations. Includes posts, comments, groups, messaging, and image uploads. Designed with React + TypeScript for a smooth, responsive UX.",
     stack: ["React.js", "TypeScript", "Neo4j", "Node.js", "WebSockets"],
     github: "https://github.com/Habib-Ahmad/neosocial",
     live: "https://neosocial.onrender.com/login",
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     id: "mistral-analytics",
     title: "Mistral Analytics Chatbot",
     description:
-      "AI-powered analytics dashboard with interactive data visualizations. You can ask questions about your data in natural language and get instant insights.",
+      "Ask questions in natural language and get safe, validated SQL with instant charts. Guardrails enforce SELECT-only queries, auto-limits, and schema awareness. Neon/Postgres powers storage; Recharts renders visuals in a polished Next.js UI. Built for quick, trustworthy exploratory analysis.",
     stack: ["Next.js", "TypeScript", "Postgres", "Mistral", "Recharts"],
     github: "https://github.com/Habib-Ahmad/mistral-analytics-chat",
     live: "https://mistral-analytics-chat.vercel.app/",
@@ -40,7 +40,8 @@ export const projects: Project[] = [
   {
     id: "fixperts",
     title: "Fixperts",
-    description: "Expert repair marketplace with real-time communication.",
+    description:
+      "A services marketplace for booking skilled providers with live chat and status updates. Users can request, confirm, complete, or cancel jobs with clear flows. Real-time messaging runs on WebSockets; the backend uses Spring Boot with MongoDB. Built to reduce friction and missed appointments.",
     stack: ["Spring Boot", "MongoDB", "React.js", "WebSockets"],
     github: "https://github.com/Habib-Ahmad/fixperts",
     live: "https://fixperts.onrender.com/",
@@ -50,7 +51,8 @@ export const projects: Project[] = [
   {
     id: "pillais-group",
     title: "Pillais Group",
-    description: "Website for Pillais Group, an innovation ecosystem company.",
+    description:
+      "Corporate website for an innovation ecosystem company. Clean, fast pages with responsive layouts and solid SEO defaults.",
     stack: ["Next.js", "TypeScript", "Tailwind"],
     github: undefined,
     live: "https://pillais.group/",
@@ -58,26 +60,41 @@ export const projects: Project[] = [
   {
     id: "famly",
     title: "FAMLY Fintech App",
-    description: "Cooperative finance platform with real-time operations.",
+    description:
+      "A cooperative finance app for contributions, savings targets, and group deals. Real-time operations keep balances and statuses in sync across devices.",
     stack: ["Next.js", "Convex", "Tailwind", "TypeScript"],
     github: "https://github.com/your/repo2",
     live: undefined, // no live link yet
     image: "/project2.png",
+    isMobileApp: true,
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.famlyapp",
+    appStoreUrl: "https://apps.apple.com/app/famly/id1234567890",
   },
   {
     id: "ultra",
     title: "Ultra Crypto Trading",
-    description: "Mobile trading app; dashboards & flows.",
+    description:
+      "A mobile crypto trading app with streamlined order flows and clear dashboards. Built for quick actions and portfolio tracking on the go.",
     stack: ["React Native", ".NET Core"],
     github: "https://github.com/your/repo4",
     isMobileApp: true,
-    playStoreUrl: "https://play.google.com/store/apps/details?id=com.ultra.app",
-    appStoreUrl: "https://apps.apple.com/app/ultra-crypto-trading/id1234567890",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.ultra",
+    appStoreUrl: "https://apps.apple.com/app/ultra/id1234567890",
+  },
+  {
+    id: "student-shelter",
+    title: "Student Shelter",
+    description:
+      "Search and compare housing options tailored for students. Simple filters and listings make it easy to find a good match.",
+    stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+    github: "https://github.com/Habib-Ahmad/student-shelter",
+    live: undefined,
   },
   {
     id: "cspillai",
     title: "CSPillai Website",
-    description: "Corporate site for CSPillai consulting firm.",
+    description:
+      "Corporate site for CSPillai consulting. Lightweight, responsive build focused on clarity and speed.",
     stack: ["React.js", "CSS"],
     github: undefined,
     live: "https://cspillai.com/",
@@ -85,17 +102,10 @@ export const projects: Project[] = [
   {
     id: "invest2exit",
     title: "Invest2Exit",
-    description: "Investment platform connecting startups with investors.",
+    description:
+      "Investment platform that connects startups with investors and showcases opportunities. Includes onboarding, deal pages, and basic tracking.",
     stack: ["React.js", "Node.js", "Express", "MongoDB"],
     github: undefined,
     live: "https://foundingbystakeholders.cspillai.com/",
-  },
-  {
-    id: "student-shelter",
-    title: "Student Shelter",
-    description: "Platform connecting students with housing options.",
-    stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    github: "https://github.com/Habib-Ahmad/student-shelter",
-    live: undefined,
   },
 ];
