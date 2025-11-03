@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useLang } from "./lang-context";
+import DownloadCVButton from "./download-cv-button";
 
 export default function Hero() {
   const { lang } = useLang();
@@ -35,11 +36,7 @@ export default function Hero() {
             {lang === "fr" ? "Voir les projets" : "View Projects"}
           </a>
         </Button>
-        <Button variant="outline" asChild>
-          <a href="/AhmadHabibCV.pdf" download>
-            {lang === "fr" ? "Télécharger le CV" : "Download CV"}
-          </a>
-        </Button>
+        <DownloadCVButton asChild variant="outline" />
       </div>
     </div>
   );

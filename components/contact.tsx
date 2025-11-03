@@ -1,8 +1,8 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { useLang } from "./lang-context";
+import DownloadCVButton from "./download-cv-button";
 
 export default function Contact() {
   const { lang } = useLang();
@@ -47,11 +47,8 @@ export default function Contact() {
               github.com/Habib-Ahmad
             </a>
           </div>
-          <Button asChild className="ml-auto md:ml-auto">
-            <a href="/AhmadHabibCV.pdf" download>
-              {lang === "fr" ? "Télécharger le CV" : "Download CV"}
-            </a>
-          </Button>
+
+          <DownloadCVButton asChild className="ml-auto" />
         </div>
       </Card>
     </div>

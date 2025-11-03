@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import ModeToggle from "./mode-toggle";
-import { Button } from "@/components/ui/button";
 import { useLang } from "./lang-context";
+import DownloadCVButton from "./download-cv-button";
 
 const links = {
   fr: [
@@ -75,11 +75,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <Button asChild size="sm" variant="secondary">
-            <a href="/AhmadHabibCV.pdf" download>
-              Download CV
-            </a>
-          </Button>
+          <DownloadCVButton asChild size="sm" />
 
           <button
             onClick={() => setLang(lang === "en" ? "fr" : "en")}
