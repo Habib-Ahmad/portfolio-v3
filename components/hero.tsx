@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useLang } from "./lang-context";
 
 export default function Hero() {
+  const { lang } = useLang();
+
   return (
     <div className="py-20 md:py-28 text-center">
       <motion.h1
@@ -12,8 +15,7 @@ export default function Hero() {
         transition={{ duration: 0.5 }}
         className="text-3xl md:text-5xl font-bold tracking-tight"
       >
-        Hi, I&apos;m{" "}
-        <span className="underline underline-offset-8">Ahmad Habib</span>
+        {lang === "fr" ? "Salut, je suis Ahmad Habib" : "Hi, I'm Ahmad Habib"}
       </motion.h1>
 
       <motion.p
@@ -22,18 +24,20 @@ export default function Hero() {
         transition={{ delay: 0.1, duration: 0.5 }}
         className="mt-4 text-base md:text-lg opacity-90 max-w-2xl mx-auto"
       >
-        Full-stack engineer with a strong product mindset. I design and ship
-        fast, reliable, and accessible experiences that stay easy to evolve as
-        teams and features grow.
+        {lang === "fr"
+          ? "Ingénieur full-stack avec une forte sensibilité produit. Je conçois et livre des expériences rapides, fiables et accessibles, qui restent faciles à faire évoluer."
+          : "Full-stack engineer with a strong product mindset. I design and ship fast, reliable, and accessible experiences that stay easy to evolve as teams and features grow."}
       </motion.p>
 
       <div className="mt-8 flex items-center justify-center gap-3">
         <Button asChild>
-          <a href="#projects">View Projects</a>
+          <a href="#projects">
+            {lang === "fr" ? "Voir les projets" : "View Projects"}
+          </a>
         </Button>
         <Button variant="outline" asChild>
           <a href="/AhmadHabibCV.pdf" download>
-            Download CV
+            {lang === "fr" ? "Télécharger le CV" : "Download CV"}
           </a>
         </Button>
       </div>

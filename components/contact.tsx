@@ -1,12 +1,19 @@
+"use client";
+
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useLang } from "./lang-context";
 
 export default function Contact() {
+  const { lang } = useLang();
+
   return (
     <div className="py-12">
       <h2 className="text-2xl md:text-3xl font-bold">Contact</h2>
       <p className="opacity-80 mt-2">
-        Let&apos;s work together. I&apos;m open to collaborations and roles.
+        {lang === "fr"
+          ? "Travaillons ensemble. Je suis ouvert aux collaborations et aux postes."
+          : "Let's work together. I'm open to collaborations and roles."}
       </p>
 
       <Card className="p-6 mt-6">
@@ -42,7 +49,7 @@ export default function Contact() {
           </div>
           <Button asChild className="ml-auto md:ml-auto">
             <a href="/AhmadHabibCV.pdf" download>
-              Download CV
+              {lang === "fr" ? "Télécharger le CV" : "Download CV"}
             </a>
           </Button>
         </div>

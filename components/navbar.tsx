@@ -3,16 +3,26 @@
 import { useEffect, useState } from "react";
 import ModeToggle from "./mode-toggle";
 import { Button } from "@/components/ui/button";
+import { useLang } from "./lang-context";
 
-const links = [
-  { href: "#home", label: "Home" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
-];
+const links = {
+  fr: [
+    { href: "#home", label: "Accueil" },
+    { href: "#projects", label: "Projets" },
+    { href: "#contact", label: "Contact" },
+  ],
+  en: [
+    { href: "#home", label: "Home" },
+    { href: "#projects", label: "Projects" },
+    { href: "#contact", label: "Contact" },
+  ],
+};
 
 export default function Navbar() {
   const [active, setActive] = useState<string>("#home");
   const [solid, setSolid] = useState(false);
+
+  const { lang, setLang } = useLang();
 
   useEffect(() => {
     const handler = () => setSolid(window.scrollY > 10);
@@ -21,7 +31,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sections = links
+    const sections = links[lang]
       .map((l) => document.querySelector(l.href) as HTMLElement)
       .filter(Boolean);
     const obs = new IntersectionObserver(
@@ -34,7 +44,7 @@ export default function Navbar() {
     );
     sections.forEach((s) => obs.observe(s));
     return () => obs.disconnect();
-  }, []);
+  }, [lang]);
 
   return (
     <header
@@ -49,7 +59,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-4">
           <ul className="hidden md:flex items-center gap-6">
-            {links.map((l) => (
+            {links[lang].map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
@@ -70,6 +80,14 @@ export default function Navbar() {
               Download CV
             </a>
           </Button>
+
+          <button
+            onClick={() => setLang(lang === "en" ? "fr" : "en")}
+            className="text-sm opacity-70 hover:opacity-100"
+            aria-label="Change language"
+          >
+            {lang === "en" ? "FR" : "EN"}
+          </button>
 
           <ModeToggle />
         </div>
