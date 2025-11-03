@@ -22,8 +22,9 @@ export default function Hero() {
         transition={{ delay: 0.1, duration: 0.5 }}
         className="mt-4 text-base md:text-lg opacity-90 max-w-2xl mx-auto"
       >
-        Full-stack developer focusing on **Next.js**, **Convex**, and real-time
-        apps. I build fast, clean experiences with a product mindset.
+        Full-stack engineer with a strong product mindset. I design and ship
+        fast, reliable, and accessible experiences that stay easy to evolve as
+        teams and features grow.
       </motion.p>
 
       <div className="mt-8 flex items-center justify-center gap-3">

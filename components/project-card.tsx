@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Github, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,15 +13,14 @@ export function ProjectCard({ project }: { project: Project }) {
 
   return (
     <Card
-      className={`
+      className="
         group relative h-full overflow-hidden flex flex-col border
         bg-card
         shadow-sm
         hover:shadow-md transition
         hover:ring-1 hover:ring-primary/15 dark:hover:ring-primary/20
-      `}
+      "
     >
-      {/* top accent (lighter in light mode) */}
       <span
         aria-hidden
         className="
@@ -31,7 +30,6 @@ export function ProjectCard({ project }: { project: Project }) {
         "
       />
 
-      {/* big card image */}
       {isBig && project.image && (
         <div className="relative w-full aspect-video overflow-hidden">
           <Image
@@ -46,7 +44,6 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       )}
 
-      {/* CONTENT */}
       <div className="flex-1 p-4 md:p-6 flex flex-col">
         <div className="flex items-center gap-2">
           <h3 className="text-lg md:text-xl font-semibold tracking-tight">
@@ -95,7 +92,13 @@ export function ProjectCard({ project }: { project: Project }) {
               {project.github && (
                 <Button asChild size="sm" variant="outline" className="gap-2">
                   <a href={project.github} target="_blank" rel="noreferrer">
-                    <Github className="h-4 w-4" />
+                    <Image
+                      src="/github.svg"
+                      alt="GitHub"
+                      width={16}
+                      height={16}
+                      className="dark:invert h-4 w-4"
+                    />
                     GitHub
                   </a>
                 </Button>
