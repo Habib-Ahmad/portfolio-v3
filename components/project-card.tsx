@@ -65,22 +65,6 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.description}
         </p>
 
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {project.stack.map((s) => (
-            <Badge
-              key={s}
-              variant="secondary"
-              className="
-                px-2 py-0.5 text-xs
-                bg-primary/10 text-primary
-                dark:bg-secondary/60 dark:text-foreground
-              "
-            >
-              {s}
-            </Badge>
-          ))}
-        </div>
-
         <div className="mt-auto pt-4 flex flex-wrap items-center gap-2">
           {project.isMobileApp ? (
             <StoreButtons
